@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. https://webflow.com -->
+<!-- Last Published: Mon Dec 18 2023 16:03:40 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="taxi-vtc-35207aba91a15a029a1331facc0b4e.webflow.io" data-wf-page="656350de49d8a5147e2f20b2" data-wf-site="656350de49d8a5147e2f20b5">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Taxi Transport Accompagnement</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport"/>
+		<meta content="Webflow" name="generator"/>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<link href="fast-animations.css" rel="stylesheet" type="text/css"/>
+		<link href="https://fonts.googleapis.com" rel="preconnect"/>
+		<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			WebFont.load({
+				  google: {
+					families: ["Varela Round:400","Poppins:200,300,regular,500,600,700,800,900"]  
+				}
+			});
+		</script>
+		<script type="text/javascript">
+			!function(o,c){
+				var n=c.documentElement,t=" w-mod-";
+				n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")
+			}
+			(window,document);
+		</script>
+		<link href="https://assets-global.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+		<link href="https://assets-global.website-files.com/img/webclip.png" rel="apple-touch-icon"/>
+		<style>
+			@media screen and (max-width: 991px) {
+				.flexbox {
+					margin-bottom: 0 !important;
+				}
+				.list-wrapper {
+					margin-bottom: 0 !important;
+				}
+				/* Ajuster l'espace entre les sections sur mobile */
+				.section_nopad {
+					margin-bottom: 30px !important;
+					margin-top: 0 !important;
+				}
+				.section {
+					margin-bottom: 30px !important;
+					padding-top: 30px !important;
+					padding-bottom: 30px !important;
+				}
+				/* Réduire spécifiquement l'espace entre la deuxième et la troisième section */
+				.section_nopad[style*="margin-bottom: 80px; margin-top: -30px"] {
+					margin-top: -80px !important;
+					margin-bottom: 60px !important;
+				}
+				
+				/* Styles pour notre menu mobile personnalisé */
+				.custom-mobile-menu {
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					min-height: 100vh;
+					background-color: #111111;
+					z-index: 1;
+					transform: translateY(-100%);
+					transition: transform 0.15s ease;
+					pointer-events: none;
+				}
+				
+				.mobile-menu-content {
+					width: 100%;
+					height: 100%;
+					min-height: 100vh;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					padding: 50px 0;
+					box-sizing: border-box;
+				}
+				
+				.custom-mobile-menu.open {
+					transform: translateY(0);
+					pointer-events: auto;
+				}
+				
+				.custom-mobile-menu a {
+					color: white;
+					text-decoration: none;
+					font-size: 28px;
+					margin: 25px 0;
+					font-family: 'Poppins', sans-serif;
+					font-weight: 500;
+					position: relative;
+					padding-bottom: 5px;
+					transition: color 0.3s ease;
+				}
+				
+				.custom-mobile-menu a.active {
+					color: #c06299;
+				}
+				
+				.custom-mobile-menu a::after {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					width: 0;
+					height: 2px;
+					background-color: #c06299;
+					transition: all 0.3s ease;
+					transform: translateX(-50%);
+				}
+				
+				.custom-mobile-menu a:hover::after,
+				.custom-mobile-menu a.active::after {
+					width: 100%;
+				}
+				
+				.custom-mobile-menu a:hover {
+					color: #c06299;
+				}
+				
+				/* Agrandir davantage les textes sur tablette et mobile */
+				@media screen and (max-width: 991px) {
+					.custom-mobile-menu a {
+						font-size: 32px;
+						margin: 30px 0;
+					}
+				}
+				
+				@media screen and (max-width: 479px) {
+					.custom-mobile-menu a {
+						font-size: 36px;
+						margin: 35px 0;
+					}
+				}
+				
+				.custom-mobile-menu .close-btn {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					font-size: 40px;
+					color: white;
+					cursor: pointer;
+				}
+				
+				/* S'assurer que les éléments de la navbar restent visibles */
+				.nav-button-wrapper, .navbutton {
+					color: white;
+					font-size: 24px;
+					margin: 15px 0;
+					text-decoration: none;
+					display: block;
+					text-align: center;
+				}
+				
+				.custom-mobile-menu .close-btn {
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					color: white;
+					font-size: 30px;
+					cursor: pointer;
+				}
+				
+				/* Masquer le menu mobile de Webflow */
+				.w-nav-overlay {
+					display: none !important;
+				}
+			}
+
+			/* Animation améliorée de la navbar */
+			.nav {
+				transition: all 0.4s ease;
+				padding: 15px 0;
+			}
+
+			.nav.scrolled {
+				background-color: #fff !important;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				padding: 10px 0;
+			}
+
+			.nav.scrolled .nav-text {
+				color: #333 !important;
+				transition: color 0.3s ease;
+			}
+
+			.nav.scrolled .button-call { 
+				color: #fff !important; 
+				background-color: #c06299 !important;
+				border-color: #c06299 !important; 
+				transition: all 0.3s ease;
+			}
+			.nav.scrolled .button-call:hover { 
+				color: #c06299 !important; 
+				background-color: #fff !important;
+				border-color: #c06299 !important;
+			}
+
+			.nav.scrolled .menu-icon_line-top,
+			.nav.scrolled .menu-icon_line-middle,
+			.nav.scrolled .menu-icon_line-bottom {
+				background-color: #333 !important;
+				transition: background-color 0.3s ease;
+			}
+
+			/* Amélioration du centrage des éléments */
+			.div-block {
+				transition: all 0.3s ease;
+			}
+
+			/* Positionnement des flèches du slider sur desktop et tablette */
+			.left-arrow, .right-arrow {
+				position: absolute;
+				top: auto;
+				bottom: -50px;
+				z-index: 10;
+				cursor: pointer;
+				transition: opacity 0.3s ease;
+			}
+
+			.left-arrow {
+				left: 20px;
+			}
+
+			.right-arrow {
+				right: 20px;
+			}
+
+			.left-arrow:hover, .right-arrow:hover {
+				opacity: 0.8;
+			}
+
+			/* Style du bouton RÉSERVER ICI */
+			.hero-button-white:hover {
+				background-color: #fff !important;
+				color: #c06299 !important;
+				border: 1px solid #c06299 !important;
+			}
+			
+			/* Styles pour le menu mobile */
+			@media screen and (max-width: 991px) {
+				.nav-menu {
+					position: fixed;
+					top: 0;
+					right: -100vw;
+					width: 100vw;
+					height: 100vh;
+					background-color: #111111;
+					padding-top: 80px;
+					transition: right 0.3s ease;
+					z-index: 999;
+					text-align: center;
+				}
+				
+				.nav-menu.nav-open {
+					right: 0;
+				}
+				
+				.grid-item.menu {
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					padding: 20px;
+					width: 100%;
+					margin-top: 0;
+				}
+				
+				.menu-link {
+					margin-bottom: 30px;
+					width: 100%;
+					text-align: center;
+					font-size: 24px;
+				}
+				
+				.nav-menu .nav-text {
+					color: #fff !important;
+				}
+				
+				.navbutton {
+					z-index: 1001;
+					cursor: pointer;
+				}
+				
+				.nav-button-open .menu-icon_line-top {
+					transform: rotate(45deg) translate(5px, 5px);
+				}
+				
+				.nav-button-open .menu-icon_line-middle-inner {
+					opacity: 0;
+				}
+				
+				.nav-button-open .menu-icon_line-bottom {
+					transform: rotate(-45deg) translate(5px, -5px);
+				}
+				
+				.menu-icon_line-top, .menu-icon_line-middle-inner, .menu-icon_line-bottom {
+					transition: all 0.3s ease;
+				}
+			}
+
+			/* Fix pour la section des avis sur tablette */
+			@media screen and (max-width: 991px) {
+				/* Affiche un seul avis à la fois sur tablette */
+				.w-layout-grid.grid {
+					grid-template-columns: 1fr !important; /* Une seule colonne */
+				}
+
+				/* Cache le deuxième avis dans chaque slide */
+				.w-layout-grid.grid > div:nth-child(2) {
+					display: none !important;
+				}
+
+				/* Centrage des éléments dans les avis */
+				.review {
+					text-align: center !important;
+					display: flex !important;
+					flex-direction: column !important;
+					align-items: center !important;
+					justify-content: center !important;
+					margin: 0 auto !important;
+					max-width: 600px !important;
+				}
+
+				.image-3 {
+					margin: 0 auto 15px auto !important;
+					display: block !important;
+				}
+
+				.image-4 {
+					margin: 15px auto 10px auto !important;
+					display: block !important;
+				}
+
+				.review h6 {
+					text-align: center !important;
+					margin: 0 auto !important;
+				}
+
+				/* Ajustement des flèches sur tablette */
+				.left-arrow {
+					left: 15px;
+				}
+
+				.right-arrow {
+					right: 15px;
+				}
+			}
+
+			/* Fix pour la section des avis sur mobile */
+			@media screen and (max-width: 767px) {
+				/* Correction pour la grille des avis */
+				.w-layout-grid.grid {
+					display: block !important; /* Remplace grid par block pour un meilleur comportement */
+					height: auto !important; /* Permet à la hauteur de s'adapter au contenu */
+				}
+
+				/* Fix pour tous les éléments review */
+				.review {
+					height: auto !important;
+					min-height: 0 !important;
+					overflow: visible !important;
+					margin-bottom: 30px !important;
+					display: flex !important; /* Utilise flexbox pour centrer les éléments */
+					flex-direction: column !important;
+					align-items: center !important;
+					justify-content: center !important;
+					width: 100% !important; /* Utilise toute la largeur disponible */
+					max-width: 500px !important; /* Limite la largeur maximale */
+					margin-left: auto !important;
+					margin-right: auto !important;
+					text-align: center !important;
+				}
+
+				/* Fix spécifique pour le nœud problématique */
+				#w-node-_6c1904a4-72bf-aba8-89b2-02dfa6d040d4-7e2f20b2 {
+					height: auto !important;
+					overflow: visible !important;
+					position: relative !important;
+				}
+
+				.paragraph {
+					max-height: none !important;
+					overflow: visible !important;
+					word-wrap: break-word !important; /* Évite les débordements de texte */
+					text-align: center !important;
+				}
+
+				/* Centrage des étoiles, image et prénom */
+				.image-3 {
+					margin: 0 auto 15px auto !important;
+					display: block !important;
+				}
+
+				.image-4 {
+					margin: 15px auto 10px auto !important;
+					display: block !important;
+				}
+
+				.review h6 {
+					text-align: center !important;
+					margin: 0 auto !important;
+					font-weight: 600 !important;
+				}
+
+				/* Ajustements pour la section des avis */
+				.review-slider {
+					height: auto !important;
+				}
+
+				.w-slider-mask {
+					height: auto !important;
+				}
+
+				.w-slide {
+					height: auto !important;
+				}
+
+				/* Améliore la navigation du slider sur mobile */
+				.left-arrow, .right-arrow {
+					margin-top: 0 !important;
+					top: auto !important;
+					bottom: -50px !important;
+					position: absolute !important;
+				}
+
+				.left-arrow {
+					left: 10px !important;
+				}
+
+				.right-arrow {
+					right: 10px !important;
+				}
+
+				.hero-title {
+					font-size: 28px !important;
+					line-height: 1.3 !important;
+				}
+
+				.hero-p {
+					font-size: 14px !important;
+				}
+			}
+		</style>
+		
+	</head>
+	<body>
+		<!-- Menu mobile personnalisé -->
+		<div class="custom-mobile-menu" id="customMobileMenu">
+			<div class="mobile-menu-content">
+				<a href="./index.html" class="active" onclick="window.location.href='./index.html'; return false;">Accueil</a>
+				<a href="./Contact.html" onclick="window.location.href='./Contact.html'; return false;">Contact</a>
+			</div>
+		</div>
+		
+		<section class="hero-section" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;">
+			<div class="hero-container" style="display: flex; flex-direction: column; justify-content: center; flex: 1; height: 100vh;">
+				<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: transparent;">
+					<div class="navbar-container" style="padding-left: 40px; padding-right: 40px; display: flex; justify-content: space-between; align-items: center;">
+						<nav role="navigation" class="nav-menu w-nav-menu">
+							<div class="grid-item menu">
+								<a href="./index.html" aria-current="page" class="menu-link w-inline-block w--current">
+									<div class="menu-line"></div>
+									<p class="nav-text">
+										Accueil
+									</p>
+								</a>
+								<a href="./Contact.html" class="menu-link not-yet w-inline-block">
+									<p class="nav-text">
+										Contact
+									</p>
+									<div class="menu-line"></div>
+								</a>
+							</div>
+						</nav>
+						<div id="w-node-fc1dcc30-f3fb-3825-8a1c-0c7bb43a1b43-b43a1b2b" class="nav-button-wrapper" style="margin-right: 15px; position: relative; z-index: 10000;">
+							<a href="tel:+33658845595" class="button-call w-button">+33 6 58 84 55 95</a>
+						</div>
+						<div id="w-node-fc1dcc30-f3fb-3825-8a1c-0c7bb43a1b46-b43a1b2b" class="navbutton w-nav-button" style="margin-left: 5px; position: relative; z-index: 10000;" onclick="toggleMobileMenu()">
+							<div class="menu-icon_component">
+								<div class="menu-icon_line-top"></div>
+								<div class="menu-icon_line-middle">
+									<div class="menu-icon_line-middle-inner"></div>
+								</div>
+								<div class="menu-icon_line-bottom"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="div-block" style="text-align: center; display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 100%; padding: 20px; margin: 0 auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); box-sizing: border-box;">
+					<h2 class="headline">PROFESSIONEL</h2>
+					<h1 class="hero-title">
+						TAXI TRANSPORT ACCOMPAGNEMENT <br/> MARSEILLE
+					</h1>
+					<p class="hero-p">
+						Votre Taxi Transport Accompagnement à Marseille et Monptellier, 24h/24 et 7j/7. Réservez dès maintenant 
+						<br/>
+						pour des trajets confortables et sécurisés.
+					</p>
+					<a href="./Contact.html" class="hero-button w-button" style="transition: all 0.3s ease;">CONTACT</a>
+				</div>
+			</div>
+			<a href="tel:+41788044444" class="call-button w-inline-block"><img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/657c8cd4db53cf7a374ba852_656350de49d8a5147e2f20bf_phone-call%20(1).png" loading="lazy" width="30" alt=""/></a>
+			<div class="image-2"></div>
+		</section>
+		<section class="section_nopad" style="margin-bottom: 40px;">
+			<div class="hero-container">
+				<div class="flexbox">
+					<div id="w-node-_8716db28-0ec9-eb2f-02dc-1a01d3fc067d-7e2f20b2" class="left" style="padding-right: 30px;">
+						<h2 class="headline-black">QUI SOMMES-NOUS</h2>
+						<h2 class="_2nd-section-title">TAXI TRANSPORT ACCOMPAGNEMENT <br/>À MARSEILLE ET MONPTELLIER</h2>
+						<p class="p">
+							Nous sommes disponibles à tout moment à des tarifs abordables pour répondre à vos besoins de déplacement. Peu importe votre destination ou l’heure à laquelle vous devez y être, nos chauffeurs sont disponibles en permanence, 24h/24.
+						</p>
+						<p class="p">
+							Notre engagement est de vous offrir une ponctualité inébranlable. Nous garantissons une prise en charge à l’heure convenue et veillons à ce que vous arriviez à votre destination finale à temps, à chaque fois.
+						</p>
+						<div class="list-wrapper">
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Transport assis médicalisés conventionées CPAM
+								</p>
+							</div>
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Transport toute distance, France et étranger
+								</p>
+							</div>
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Transfert aéroport, gare etc ...
+								</p>
+							</div>
+						</div>
+					</div>
+					<div id="w-node-_4df2db4e-4b65-f5c5-2e00-7775085c8616-7e2f20b2" class="right"></div>
+					<div class="new-text-mob">
+						<h2 class="headline-black-copy">QUI SOMMES-NOUS</h2>
+						<h2 class="_2nd-section-title-copy">TAXI TRANSPORT ACCOMPAGNEMENT <br/>À MARSEILLE ET MONPTELLIER</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+		<!-- <section class="booking-section">
+			<div data-w-id="2abd86fa-4379-889b-2b3d-f97fce4379d0" style="opacity:0" class="hero-container">
+				<div class="multi-step-form-wrapper---brix preview-page">
+					<div class="title-container---brix">
+						<h2 class="heading">Réservation en ligne<br/></h2>
+					</div>
+					<div class="multi-step-form-block---brix w-form">
+						<form id="wf-form-Multi-step-Form-Preview" name="wf-form-Multi-step-Form-Preview" data-name="Multi-step Form Preview" method="get" class="multi-step-form---brix" data-wf-page-id="656350de49d8a5147e2f20b2" data-wf-element-id="2abd86fa-4379-889b-2b3d-f97fce4379d8">
+							<div data-delay="4000" data-animation="slide" class="slider---brix w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="true" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="false">
+								<div class="mask---brix w-slider-mask">
+									<div class="slide---brix w-slide">
+										<div class="slider-content-wrap---brix">
+											<div class="steps-bar-wrapper--brix">
+												<div class="steps-bar---brix">
+													<div class="form-step-number---brix completed---brix">
+														1
+													</div>
+													<div class="form-step-progress-bar---brix">
+														<div class="form-step-progress-bar---brix current-step---brix"></div>
+													</div>
+													<div class="form-step-number---brix">
+														2
+													</div>
+													<div class="form-step-progress-bar---brix"></div>
+													<div class="form-step-number---brix">
+														3
+													</div>
+												</div>
+												<div class="form-step-progress-bar-mobile---brix">
+													<div class="form-step-progress-bar-mobile---brix step-1---brix"></div>
+												</div>
+											</div>
+											<div class="form-content---brix">
+												<div class="step-title-wrap---brix">
+													<h3 class="step-title---brix">Coordonnées de contact</h3>
+												</div>
+												<div class="w-layout-grid first-step-grid---brix">
+													<div class="multi-step-form-grid-item---brix">
+														<label for="Name" class="multi-step-form-label---brix">Nom</label>
+														<div>
+															<input class="multi-step-form-text-field---brix name-icon---brix w-input" maxlength="256" name="Name" data-name="Name" placeholder="Entrez votre nom" type="text" id="Name-multistep-form-preview"/>
+														</div>
+													</div>
+													<div class="multi-step-form-grid-item---brix">
+														<label for="Email--multistep-form-preview" class="multi-step-form-label---brix">Numéro de téléphone</label>
+														<input class="multi-step-form-text-field---brix email-icon---brix w-input" maxlength="256" name="Email" data-name="Email" placeholder="+33 X XX XX XX" type="tel" id="Email--multistep-form-preview"/>
+													</div>
+													<div class="multi-step-form-grid-item---brix">
+														<label for="start-adress" class="multi-step-form-label---brix">Lieu de départ</label>
+														<input class="multi-step-form-text-field---brix phone-icon---brix w-input" maxlength="256" name="start-adress" data-name="start adress" placeholder="Entrez une adresse" type="text" id="start-adress"/>
+													</div>
+													<div class="multi-step-form-grid-item---brix">
+														<label for="delivery-adress" class="multi-step-form-label---brix">Heure de départ souhaiter</label>
+														<input class="multi-step-form-text-field---brix company-icon---brix w-input" maxlength="256" name="delivery-adress" data-name="delivery adress" placeholder="Entrez une adresse" type="text" id="delivery-adress"/>
+													</div>
+													<div class="multi-step-form-grid-item---brix">
+														<label for="delivery-adress-3" class="multi-step-form-label---brix">Lieu d&#x27;arriver</label>
+														<input class="multi-step-form-text-field---brix company-icon---brix w-input" maxlength="256" name="delivery-adress-3" data-name="Delivery Adress 3" placeholder="Entrez une adresse" type="text" id="delivery-adress-3"/>
+													</div>
+													<div class="multi-step-form-grid-item---brix">
+														<label for="delivery-adress-2" class="multi-step-form-label---brix">Heure d&#x27;arriver souhaiter</label>
+														<input class="multi-step-form-text-field---brix company-icon---brix w-input" maxlength="256" name="delivery-adress-2" data-name="Delivery Adress 2" placeholder="Entrez une adresse" type="text" id="delivery-adress-2"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="slide---brix w-slide">
+										<div class="slider-content-wrap---brix">
+											<div class="steps-bar-wrapper--brix">
+												<div class="steps-bar---brix">
+													<div class="form-step-number---brix completed---brix">
+														1
+													</div>
+													<div class="form-step-progress-bar---brix">
+														<div class="form-step-progress-bar---brix complete-step---brix"></div>
+													</div>
+													<div class="form-step-number---brix completed---brix">
+														2
+													</div>
+													<div class="form-step-progress-bar---brix">
+														<div class="form-step-progress-bar---brix current-step---brix"></div>
+													</div>
+													<div class="form-step-number---brix">
+														3
+													</div>
+												</div>
+												<div class="form-step-progress-bar-mobile---brix">
+													<div class="form-step-progress-bar-mobile---brix step-2---brix"></div>
+												</div>
+												<div class="form-content---brix">
+													<div class="step-title-wrap---brix">
+														<h3 class="step-title---brix">Spécification</h3>
+													</div>
+													<div class="w-layout-grid first-step-grid---brix uniform-space---brix">
+														<div class="multi-step-form-grid-item---brix">
+															<div class="multi-step-form-grid-item---brix">
+																<label for="Name" class="multi-step-form-label---brix">Nombre de passager</label>
+																<div>
+																	<label class="w-checkbox">
+																		<input type="checkbox" id="checkbox-6" name="checkbox-6" data-name="Checkbox 6" class="w-checkbox-input"/>
+																		<span class="w-form-label" for="checkbox-6">1-2 passagers</span>
+																	</label>
+																	<label class="w-checkbox">
+																		<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																		<span class="w-form-label" for="checkbox-7">3-4 passagers (maximum)</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+														<div class="multi-step-form-grid-item---brix">
+															<div class="multi-step-form-grid-item---brix">
+																<label for="Name" class="multi-step-form-label---brix"><strong>Accessibilité pour fauteuil roulant :</strong></label>
+																<div>
+																	<label class="w-checkbox">
+																		<input type="checkbox" id="checkbox-6" name="checkbox-6" data-name="Checkbox 6" class="w-checkbox-input"/>
+																		<span class="w-form-label" for="checkbox-6">Fauteuil roulant pliable</span>
+																	</label>
+																	<label class="w-checkbox">
+																		<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																		<span class="w-form-label" for="checkbox-7">Rampe d&#x27;accès nécessaire</span>
+																	</label>
+																	<label class="w-checkbox">
+																		<input type="checkbox" id="checkbox-8" name="checkbox-8" data-name="Checkbox 8" class="w-checkbox-input"/>
+																		<span class="w-form-label" for="checkbox-8">Besoin d&#x27;aide pour monter/descendre du véhicule</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+														<div class="multi-step-form-grid-item---brix">
+															<label for="Name" class="multi-step-form-label---brix"><strong>Sièges pour enfants :</strong></label>
+															<div>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-6" name="checkbox-6" data-name="Checkbox 6" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-6">Sièges bébé</span>
+																</label>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-7">Sièges enfant</span>
+																</label>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-8" name="checkbox-8" data-name="Checkbox 8" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-8">Sièges d&#x27;appoint pour enfants plus âgés</span>
+																</label>
+															</div>
+														</div>
+														<div class="multi-step-form-grid-item---brix">
+															<label for="Name" class="multi-step-form-label---brix"><strong>Animal de compagnie :</strong></label>
+															<div>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-7">Chat</span>
+																</label>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-7">Chien</span>
+																</label>
+																<label class="w-checkbox">
+																	<input type="checkbox" id="checkbox-7" name="checkbox-7" data-name="Checkbox 7" class="w-checkbox-input"/>
+																	<span class="w-form-label" for="checkbox-7">Autres</span>
+																</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="slide---brix w-slide">
+										<div class="slider-content-wrap---brix">
+											<div class="steps-bar-wrapper--brix">
+												<div class="steps-bar---brix">
+													<div class="form-step-number---brix completed---brix">
+														1
+													</div>
+													<div class="form-step-progress-bar---brix">
+														<div class="form-step-progress-bar---brix complete-step---brix"></div>
+													</div>
+													<div class="form-step-number---brix completed---brix">
+														2
+													</div>
+													<div class="form-step-progress-bar---brix">
+														<div class="form-step-progress-bar---brix complete-step---brix"></div>
+													</div>
+													<div class="form-step-number---brix completed---brix">
+														3
+													</div>
+												</div>
+												<div class="form-step-progress-bar-mobile---brix">
+													<div class="form-step-progress-bar-mobile---brix full-bar---brix"></div>
+												</div>
+											</div>
+											<div class="form-content---brix">
+												<div class="submit-content-wrapper---brix">
+													<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/657c98ec2d5f6fa59a9a6555_656350de49d8a5147e2f20c7_form-check-multi-step-form-webflow-cloneable-template-brix-templates%201.png" alt="" class="completed-form-illustrations---brix"/>
+													<h3 class="step-title---brix">Confirmer la course</h3>
+													<p class="paragraph-2">
+														Veuillez vérifier les informations que vous avez saisies au cours des étapes précédentes et, si tout va bien, envoyez votre message.
+														<br/>
+														Nous vous rappellerons des que possible pour confirmer votre course
+													</p>
+													<input type="submit" data-wait="Veuillez patienter..." class="submit-button---brix w-button" value="Envoyer"/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="multi-step-form-button---brix left---brix preview-page w-slider-arrow-left">
+									<div class="text-block-2">
+										Étape précédente
+									</div>
+								</div>
+								<div class="multi-step-form-button---brix right---brix preview-page w-slider-arrow-right">
+									<div class="text-block">
+										Prochaine étape
+									</div>
+								</div>
+								<div class="display-none w-slider-nav w-round"></div>
+							</div>
+						</form>
+						<div class="multi-step-foirm---success-message---brix w-form-done">
+							<div class="submit-content-wrapper---brix">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/657c98ec2d5f6fa59a9a6555_656350de49d8a5147e2f20c7_form-check-multi-step-form-webflow-cloneable-template-brix-templates%201.png" alt="" class="completed-form-illustrations---brix"/>
+								<h3 class="step-title---brix">Merci! Votre demande a été reçue!</h3>
+								<p>
+									Veuillez revoir toutes les informations que vous avez saisies précédemment au cours des étapes précédentes et, si tout va bien, soumettez votre message pour recevoir un devis de projet dans les 24 à 48 heures.
+								</p>
+							</div>
+						</div>
+						<div class="multi-step-form-error-message---brix w-form-fail">
+							<div>
+								Oops! Something went wrong while submitting the form.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+        
+		<section class="section">
+			<div class="hero-container">
+				<div class="flexbox-copy">
+					<div class="new-text-mob">
+						<h2 class="headline-black-copy">TOUTES DISTANCES</h2>
+						<h2 class="_2nd-section-title-copy">Services de Transport Accompagnement sur Marseille et Montepllier</h2>
+					</div>
+					<div id="w-node-_52d85e92-00d6-70d3-1a86-ce84c294a78d-7e2f20b2" class="right-copy"></div>
+					<div id="w-node-_52d85e92-00d6-70d3-1a86-ce84c294a771-7e2f20b2" class="left">
+						<h2 class="headline-black">TOUTES DISTANCES</h2>
+						<h2 class="_2nd-section-title-copy-copy">Services de Transport Accompagnement sur Marseille et Montepllier</h2>
+						<div class="list-wrapper">
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list-copy">
+									Dans les villes du secteur de Marseille telles que : Aix-en-Provence, Aubagne, La Ciotat, Cassis, Vitrolles, Marignane, Gardanne...
+								</p>
+							</div>
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list-copy">
+									Dans les villes du secteur de Montpellier telles que : Castelnau-le-Lez, Lattes, Mauguio, Saint-Jean-de-Védas, Pérols, Jacou, Le Crès...
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="w-layout-grid grid"></div>
+			</div>
+		</section>
+		
+		<section class="section_nopad" style="margin-bottom: 80px; margin-top: -30px;">
+			<div class="hero-container">
+				<div class="flexbox">
+					<div id="w-node-_8716db28-0ec9-eb2f-02dc-1a01d3fc067d-7e2f20b2" class="left" style="padding-right: 30px;">
+						<h2 class="headline-black">VISITE GUIDÉE</h2>
+						<h2 class="_2nd-section-title">EXCURSIONS TOURISTIQUES <br/>À MARSEILLE ET MONTPELLIER</h2>
+						<p class="p">
+							Découvrez les trésors de Marseille et Montpellier avec nos services de visite guidée personnalisés. Nos chauffeurs expérimentés vous feront découvrir les sites touristiques incontournables et les joyaux cachés de la région.
+						</p>
+						<p class="p">
+							Nous proposons des circuits adaptés à vos intérêts et à votre emploi du temps, pour une expérience touristique sur mesure et sans contraintes.
+						</p>
+						<div class="list-wrapper">
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Circuits touristiques personnalisés
+								</p>
+							</div>
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Excursions à la journée ou demi-journée
+								</p>
+							</div>
+							<div class="list">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20bd_checkmark.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list">
+									Découverte des sites culturels et naturels
+								</p>
+							</div>
+						</div>
+					</div>
+					<div id="w-node-_4df2db4e-4b65-f5c5-2e00-7775085c8616-7e2f20b2" class="right" style="background-image: url('./full-day-private-tour-in-car-and-walking-08.jpg'); background-size: cover; background-position: center;"></div>
+					<div class="new-text-mob">
+						<h2 class="headline-black-copy">VISITE GUIDÉE</h2>
+						<h2 class="_2nd-section-title-copy">EXCURSIONS TOURISTIQUES <br/>À MARSEILLE ET MONTPELLIER</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="bg-section">
+			<div class="hero-container">
+				<div class="bg-wrapper">
+					<h1 class="h2">Réservez votre trajet dés maintenant !</h1>
+					<p class="p-copy">
+						Vous pouvez compter sur les services de notre chauffeur Taxi Transport Accompagnement à Marseille et Montepllier !
+					</p>
+					<a href="./Contact.html" class="hero-button-white w-button" style="background-color: #c06299; color: #fff; border: 1px solid #c06299; transition: all 0.3s ease;">RÉSERVER ICI</a>
+				</div>
+			</div>
+		</section>
+		<section class="review-section">
+			<div class="hero-container">
+				<h2 class="h2-copy">Avis Google</h2>
+				<p class="p-black">
+					Vos retours sont précieux pour nous, et nous sommes impatients de continuer à vous satisfaire lors de vos futurs déplacements.
+				</p>
+				<div data-delay="4000" data-animation="slide" class="review-slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="true" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
+					<div class="w-slider-mask">
+						<div class="w-slide">
+							<div class="w-layout-grid grid">
+								<div id="w-node-d04dc6aa-d749-cd0c-34bc-c10db1a9912f-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+								<div id="w-node-_6c1904a4-72bf-aba8-89b2-02dfa6d040d4-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+							</div>
+						</div>
+						<div class="w-slide">
+							<div class="w-layout-grid grid">
+								<div id="w-node-_05c66fd2-fec6-eb3f-5636-3732cbd5cbc5-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+								<div id="w-node-_05c66fd2-fec6-eb3f-5636-3732cbd5cbcc-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+							</div>
+						</div>
+						<div class="w-slide">
+							<div class="w-layout-grid grid">
+								<div id="w-node-bc1c1673-fcb3-a3fb-2d84-b6e7d58368c4-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+								<div id="w-node-bc1c1673-fcb3-a3fb-2d84-b6e7d58368cb-7e2f20b2" class="review">
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d4_Group%2048095871.svg" loading="lazy" alt="" class="image-3"/>
+									<p class="paragraph">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.
+									</p>
+									<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d5_Team-5-1.jpg" loading="lazy" width="70" alt="" class="image-4"/>
+									<h6>
+										Lee W.
+									</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="left-arrow w-slider-arrow-left">
+						<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d2_right-arrow%201.svg" loading="lazy" width="50" alt="" class="icon"/>
+					</div>
+					<div class="right-arrow w-slider-arrow-right">
+						<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d3_right-arrow%201%20(1).svg" loading="lazy" width="50" alt=""/>
+					</div>
+					<div class="slide-nav w-slider-nav w-round w-num"></div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="footer">
+			<div class="hero-container">
+				<div class="w-layout-grid grid3">
+					<div id="w-node-a53693ce-0445-8aab-f657-89655ebf6c17-5ebf6c14" class="left">
+						<h1 class="text">A propos</h1>
+						<p class="footer-p">
+							Vous profiterez de la plus haute qualité de service de transport avec chauffeur couvrant les régions de Marseille et Montpellier, pour tous vos déplacements personnels et professionnels.
+						</p>
+						<p class="footer-p-copy">
+							Réservez dès maintenant pour des trajets confortables et sécurisés.
+						</p>
+						<div class="text-wrapper">
+							<a href="tel:+41788044444" class="form-link w-inline-block">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d7_missed-call.png" loading="lazy" width="19" alt="" class="icon"/>
+								<p class="p-list-copy-copy">
+									+33 6 58 84 55 95
+								</p>
+							</a>
+							<a href="mailto:taxivtclausanne3@gmail.com" class="form-link-copy w-inline-block">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat.png" loading="lazy" width="19" sizes="(max-width: 767px) 19px, (max-width: 991px) 2vw, (max-width: 1279px) 19px, 1vw" alt="" srcset="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat-p-500.png 500w, https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat.png 512w" class="icon"/>
+								<p class="p-list-copy-copy">
+									taxivtc@gmail.com
+								</p>
+							</a>
+							<div class="form-link"></div>
+							<div class="form-link-copy">
+								<img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock.png" loading="lazy" width="19" sizes="(max-width: 767px) 19px, (max-width: 991px) 2vw, (max-width: 1279px) 19px, 1vw" alt="" srcset="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock-p-500.png 500w, https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock.png 512w" class="icon"/>
+								<p class="p-list-copy-copy-copy">
+									Disponible 24h/24 7j/7
+								</p>
+							</div>
+						</div>
+					</div>
+					<div id="w-node-a53693ce-0445-8aab-f657-89655ebf6c2a-5ebf6c14" class="middle">
+						<div class="_70">
+							<h1 class="text">MENU</h1>
+							<div class="link-wrapper">
+								<a href="./index.html" class="footer-button w-button">Accueil</a>
+								<a href="./Contact.html" class="footer-button w-button">Contact</a>
+							</div>
+							<p class="footer-p">
+								Réserver votre Taxi Transport Accompagnement en ligne.
+							</p>
+							<a href="./Contact.html" class="hero-button w-button">Contact</a>
+						</div>
+					</div>
+				</div>
+				<div class="grey-line"></div>
+				<div class="copyright-text" style="color: white;">
+					© 2023 Created by <a href="https://www.tobistudio.fr/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold;">TOBI STUDIO</a>
+				</div>
+			</div>
+		</section>
+		<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=656350de49d8a5147e2f20b5" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+		<script src="test.js" type="text/javascript"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js' data-info='hacks-body'></script>
+		<script data-info='hacks-body'>
+            // when the DOM is ready
+            $(document).ready(function() {
+              // store a reference to the select field in the $audioTextField variable;
+              const $audioTextField = $('#name');
+              // store a reference to the email form in the $emailForm variable;
+              const $formNewsletter = $('#email-form');
+              // declare & initialize the customSuccessMessage variable;
+              // with the value of the option selected;
+              // on the interest select field;
+              let customSuccessMessage = $audioTextField.val();
+              // every time the option on the select field changes
+              $audioTextField.change(function() {
+                // assign the new selected option's value to the customSuccessMessage variable;
+                customSuccessMessage = $(this).val();
+              });
+              // when the form's submit button is clicked 
+              $formNewsletter.submit(function(e) {
+                // if the user selected an option on the select field
+                if (customSuccessMessage) {
+                  // Your form submission code goes here
+                }
+              });
+            });
+          </script>
+	<script>
+			// Script pour l'animation de la navbar au scroll et gestion du menu mobile
+			document.addEventListener('DOMContentLoaded', function() {
+				const nav = document.querySelector('.nav');
+				const navButton = document.querySelector('.navbutton');
+				const navMenu = document.querySelector('.nav-menu');
+				
+				// Fonction pour vérifier le scroll
+				function checkScroll() {
+					if (window.scrollY > window.innerHeight * 0.8) {
+						nav.classList.add('scrolled');
+					} else {
+						nav.classList.remove('scrolled');
+					}
+				}
+				
+				// Gestion du menu mobile - Désactivé car nous utilisons notre menu personnalisé
+				// navButton.addEventListener('click', function() {
+				// 	navMenu.classList.toggle('nav-open');
+				// 	// Suppression de l'animation qui transforme l'icône en croix
+				// 	// navButton.classList.toggle('nav-button-open');
+				// });
+				
+				window.addEventListener('scroll', checkScroll);
+				checkScroll(); // Vérification initiale
+			});
+		</script>
+		
+		<!-- Script pour le menu mobile personnalisé -->
+		<script>
+			function toggleMobileMenu() {
+				const menu = document.getElementById('customMobileMenu');
+				menu.classList.toggle('open');
+			}
+		</script>
+	</body>
+</html>

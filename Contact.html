@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Taxi Transport Accompagnement</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./fast-animations.css">
+    <style>
+        /* Styles responsifs pour la navbar */
+        .nav {
+            transition: all 0.4s ease;
+            padding: 15px 0;
+        }
+        
+        /* Styles pour tablette */
+        @media screen and (max-width: 991px) {
+            .navbar-container {
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+        }
+        
+        /* Styles pour mobile */
+        @media screen and (max-width: 479px) {
+            .navbar-container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+        
+        /* Styles pour le bouton téléphone après scroll */
+        .nav.scrolled .button-call { 
+            color: #fff !important; 
+            background-color: #c06299 !important;
+            border-color: #c06299 !important; 
+            transition: all 0.3s ease;
+        }
+        .nav.scrolled .button-call:hover { 
+            color: #c06299 !important; 
+            background-color: #fff !important;
+            border-color: #c06299 !important;
+        }
+        
+        /* Styles pour la navbar après scroll - garde le fond noir */
+        .nav.scrolled {
+            background-color: #000 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 10px 0;
+        }
+        
+        /* Styles pour le texte de navigation après scroll - reste blanc */
+        .nav.scrolled .nav-text {
+            color: #fff !important;
+            transition: color 0.3s ease;
+        }
+        
+        /* Styles pour le texte de la navbar sur la page Contact */
+        .nav-text {
+            color: #fff !important;
+        }
+        
+        /* Style pour le bouton téléphone */
+        .button-call {
+            color: #fff !important;
+            background-color: #c06299 !important;
+            border-color: #c06299 !important;
+            transition: all 0.3s ease;
+        }
+        
+        .button-call:hover {
+            color: #c06299 !important;
+            background-color: #fff !important;
+            border-color: #fff !important;
+        }
+        
+        /* Styles pour notre menu mobile personnalisé */
+        .custom-mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            background-color: #111111;
+            z-index: 9000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .mobile-menu-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            box-sizing: border-box;
+        }
+        
+        .custom-mobile-menu.open {
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        
+        .custom-mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            margin: 25px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .custom-mobile-menu a.active {
+            color: #c06299;
+        }
+        
+        .custom-mobile-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #c06299;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .custom-mobile-menu a:hover::after,
+        .custom-mobile-menu a.active::after {
+            width: 100%;
+        }
+        
+        .custom-mobile-menu a:hover {
+            color: #c06299;
+        }
+        
+        /* Agrandir davantage les textes sur tablette et mobile */
+        @media screen and (max-width: 991px) {
+            .custom-mobile-menu a {
+                font-size: 32px;
+                margin: 30px 0;
+            }
+            
+            /* Masquer le menu mobile de Webflow */
+            .nav-menu {
+                display: none !important;
+            }
+        }
+        
+        @media screen and (max-width: 479px) {
+            .custom-mobile-menu a {
+                font-size: 36px;
+                margin: 35px 0;
+            }
+        }
+        /* Styles pour le bouton de menu */
+        @media screen and (max-width: 991px) {
+            .grid-item.menu {
+                display: none;
+            }
+            .navbutton {
+                z-index: 1001;
+                position: relative;
+            }
+        }
+        /* Styles pour l'animation du bouton menu - désactivés */
+        .nav-button-open .menu-icon_line-top {
+            /* transform: rotate(45deg) translate(5px, 5px); */
+        }
+        
+        .nav-button-open .menu-icon_line-middle-inner {
+            /* opacity: 0; */
+        }
+        
+        .nav-button-open .menu-icon_line-bottom {
+            /* transform: rotate(-45deg) translate(5px, -5px); */
+        }
+        
+        .menu-icon_line-top, .menu-icon_line-middle-inner, .menu-icon_line-bottom {
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        /* Styles pour le menu mobile personnalisé */
+        #customMobileMenu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            background-color: #111111;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+        
+        /* Styles pour la ligne rose au survol des liens dans la navbar */
+        .menu-link .menu-line {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background-color: #c06299;
+            transform: translateX(-101%);
+            transition: transform 0.15s ease;
+        }
+        
+        .menu-link:hover .menu-line {
+            transform: translateX(0%);
+        }
+        
+        /* Style pour le lien actif */
+        .menu-link.w--current .nav-text {
+            color: #c06299;
+        }
+        
+        .menu-link.w--current .menu-line {
+            transform: translateX(0%);
+        }
+        
+        #customMobileMenu.open {
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .mobile-menu-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 0;
+            box-sizing: border-box;
+        }
+        
+        #customMobileMenu a {
+            color: white;
+            text-decoration: none;
+            font-size: 28px;
+            margin: 25px 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+        
+        #customMobileMenu a.active {
+            color: #c06299;
+        }
+        
+        #customMobileMenu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #c06299;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        #customMobileMenu a:hover::after,
+        #customMobileMenu a.active::after {
+            width: 100%;
+        }
+    </style>
+    
+    <!-- Menu mobile personnalisé -->
+    <div id="customMobileMenu">
+        <div class="mobile-menu-content">
+            <a href="./index.html" onclick="window.location.href='./index.html'; return false;">Accueil</a>
+            <a href="./Contact.html" class="active" onclick="window.location.href='./Contact.html'; return false;">Contact</a>
+        </div>
+    </div>
+    <div class="colornav">
+    <div class="hero-container">
+        <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: #111111;">
+            <div class="navbar-container" style="padding-left: 40px; padding-right: 40px; display: flex; justify-content: space-between; align-items: center;">
+                <nav role="navigation" class="nav-menu w-nav-menu">
+                    <div class="grid-item menu">
+                        <a href="./index.html" class="menu-link w-inline-block" style="position: relative; display: flex; align-items: center; text-decoration: none; margin-right: 30px; padding: 10px 0;">
+                            <p class="nav-text" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 500; color: white;">
+                                Accueil
+                            </p>
+                            <div class="menu-line" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #c06299; transform: translateX(-101%); transition: transform 0.3s ease;"></div>
+                        </a>
+                        <a href="./Contact.html" aria-current="page" class="menu-link not-yet w-inline-block w--current" style="position: relative; display: flex; align-items: center; text-decoration: none; padding: 10px 0;">
+                            <div class="menu-line" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: #c06299; transform: translateX(0%); transition: transform 0.3s ease;"></div>
+                            <p class="nav-text" style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 500; color: #c06299;">
+                                Contact
+                            </p>
+                        </a>
+                    </div>
+                </nav>
+                <div id="w-node-fc1dcc30-f3fb-3825-8a1c-0c7bb43a1b43-b43a1b2b" class="nav-button-wrapper" style="margin-right: 15px; position: relative; z-index: 10000;">
+                    <a href="tel:+33658845595" class="button-call w-button">+33 6 58 84 55 95</a>
+                </div>
+                <div id="w-node-fc1dcc30-f3fb-3825-8a1c-0c7bb43a1b46-b43a1b2b" class="navbutton w-nav-button" style="margin-left: 5px; position: relative; z-index: 10000;" onclick="toggleMobileMenu()">
+                    <div class="menu-icon_component">
+                        <div class="menu-icon_line-top"></div>
+                        <div class="menu-icon_line-middle">
+                            <div class="menu-icon_line-middle-inner"></div>
+                        </div>
+                        <div class="menu-icon_line-bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <section class="contact-section2" style="margin-top: 150px;">
+        <div class="hero-container">
+          <h2 class="formname" style="margin-bottom: 0px;">N'hésitez pas à nous contacter si vous avez des questions ou des commentaires en utilisant le formulaire ci-dessous. Nous sommes là pour vous aider !</h2>
+          <p style="text-align: center; font-size: 22px; color: #c06299; margin-top: 20px; margin-bottom: 30px; font-weight: 600;"><a href="tel:+33658845595" style="color: #c06299; text-decoration: underline;">+33 6 58 84 55 95</a></p>
+          <div class="flexboxform">
+        <div class="form-section-left">
+        <form action="/submit-form" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-button">Envoyer</button>
+            </div>
+        </form>
+        </div>
+         <div class="form-section-right" style="display: flex; justify-content: center; align-items: center;">
+            <div style="width: 595px; height: 425px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+               <img class="form-image" src="./3589179.png" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+         </div>
+        </div>
+        </div>
+
+    </section>
+    <section class="footer">
+        <div class="hero-container">
+            <div class="w-layout-grid grid3">
+                <div id="w-node-a53693ce-0445-8aab-f657-89655ebf6c17-5ebf6c14" class="left">
+                    <h1 class="text">A propos</h1>
+                    <p class="footer-p">
+                        Vous profiterez de la plus haute qualité de service de transport avec chauffeur couvrant les régions de Marseille et Montpellier, pour tous vos déplacements personnels et professionnels.
+                    </p>
+                    <p class="footer-p-copy">
+                        Réservez dès maintenant pour des trajets confortables et sécurisés.
+                    </p>
+                    <div class="text-wrapper">
+                        <a href="tel:+41788044444" class="form-link w-inline-block">
+                            <img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d7_missed-call.png" loading="lazy" width="19" alt="" class="icon"/>
+                            <p class="p-list-copy-copy">
+                                +33 6 58 84 55 95
+                            </p>
+                        </a>
+                        <a href="mailto:taxivtclausanne3@gmail.com" class="form-link-copy w-inline-block">
+                            <img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat.png" loading="lazy" width="19" sizes="(max-width: 767px) 19px, (max-width: 991px) 2vw, (max-width: 1279px) 19px, 1vw" alt="" srcset="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat-p-500.png 500w, https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20d8_chat.png 512w" class="icon"/>
+                            <p class="p-list-copy-copy">
+                                taxivtc@gmail.com
+                            </p>
+                        </a>
+                        <div class="form-link"></div>
+                        <div class="form-link-copy">
+                            <img src="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock.png" loading="lazy" width="19" sizes="(max-width: 767px) 19px, (max-width: 991px) 2vw, (max-width: 1279px) 19px, 1vw" alt="" srcset="https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock-p-500.png 500w, https://assets-global.website-files.com/656350de49d8a5147e2f20b5/656350de49d8a5147e2f20dd_clock.png 512w" class="icon"/>
+                            <p class="p-list-copy-copy-copy">
+                                Disponible 24h/24 7j/7
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="w-node-a53693ce-0445-8aab-f657-89655ebf6c2a-5ebf6c14" class="middle">
+                    <div class="_70">
+                        <h1 class="text">MENU</h1>
+                        <div class="link-wrapper">
+                            <a href="#" class="footer-button w-button">Accueil</a>
+                            <a href="#" class="footer-button w-button">Contact</a>
+                        </div>
+                        <p class="footer-p">
+                            Réserver votre Taxi Transport Accompagnement en ligne.
+                        </p>
+                        <a href="#" class="hero-button w-button">RÉSERVER ICI</a>
+                    </div>
+                </div>
+            </div>
+            <div class="grey-line"></div>
+            <div class="copyright-text" style="color: white;">
+                © 2023 Created by <a href="https://www.tobistudio.fr/" target="_blank" style="color: white; text-decoration: underline; font-weight: bold;">TOBI STUDIO</a>
+            </div>
+        </div>
+    </section>
+<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=656350de49d8a5147e2f20b5" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="test.js" type="text/javascript"></script>
+<script>
+    // Script pour l'animation de la navbar au scroll et gestion du menu mobile
+    document.addEventListener('DOMContentLoaded', function() {
+        const nav = document.querySelector('.nav');
+        const navButton = document.querySelector('.navbutton');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // Fonction pour vérifier le scroll
+        function checkScroll() {
+            if (window.scrollY > window.innerHeight * 0.8) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+        
+        // Désactiver l'ancien menu mobile Webflow
+        // Nous n'appelons pas toggleMobileMenu() ici car il est déjà appelé via l'attribut onclick dans le HTML
+        navButton.addEventListener('click', function(e) {
+            // Empêcher uniquement le comportement par défaut de Webflow
+            // mais laisser l'attribut onclick s'exécuter
+            
+            // Ne pas activer le menu Webflow
+            navMenu.classList.remove('nav-open');
+            navButton.classList.remove('nav-button-open');
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Vérification initiale
+    });
+</script>
+
+<!-- Script pour le menu mobile personnalisé -->
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('customMobileMenu');
+        // Ajouter ou supprimer la classe 'open'
+        menu.classList.toggle('open');
+    }
+    
+    // Amélioration de la navigation pour les appareils mobiles
+    // Supprimer les gestionnaires d'événements existants et utiliser directement l'attribut onclick
+    // Cette approche est plus directe et évite les problèmes de propagation d'événements
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialiser le menu pour qu'il soit prêt à être utilisé
+        const menu = document.getElementById('customMobileMenu');
+        
+        // S'assurer que les liens sont cliquables dès le premier clic
+        const links = document.querySelectorAll('#customMobileMenu a');
+        links.forEach(function(link) {
+            // Supprimer les gestionnaires d'événements existants
+            link.replaceWith(link.cloneNode(true));
+        });
+        
+        // Rendre les liens du menu mobile immédiatement cliquables
+        document.body.addEventListener('touchstart', function() {
+            // Ce gestionnaire vide active le tactile sur iOS
+        }, false);
+        
+        // Supprimer complètement l'overlay Webflow qui interfere avec notre menu
+        function removeWebflowOverlay() {
+            const webflowOverlay = document.querySelector('.w-nav-overlay');
+            if (webflowOverlay) {
+                webflowOverlay.remove();
+            }
+        }
+        
+        // Exécuter immédiatement et à intervalles réguliers pour s'assurer que l'overlay est toujours supprimé
+        removeWebflowOverlay();
+        setInterval(removeWebflowOverlay, 500);
+    });
+</script>
+</body>
+</html>

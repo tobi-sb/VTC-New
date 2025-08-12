@@ -1,0 +1,79 @@
+/* Suppression des lignes roses dans la navbar PC et ajout de l'effet hover rose sur le texte */
+
+/* Navbar PC - Cacher les lignes roses */
+.menu-link .menu-line {
+    display: none !important;
+}
+
+/* Navbar PC - Effet hover rose sur le texte */
+.menu-link:hover .nav-text {
+    color: #c06299 !important;
+    transition: color 0.15s ease !important;
+}
+
+/* Style pour le lien actif */
+.menu-link.w--current .nav-text {
+    color: #c06299 !important;
+}
+
+/* Menu mobile - Masquer sur PC et conserver les animations sur mobile */
+#customMobileMenu, .custom-mobile-menu {
+    transition: transform 0.15s ease !important;
+    display: none !important;
+}
+
+/* Afficher le menu mobile uniquement sur mobile et tablette */
+@media screen and (max-width: 991px) {
+    #customMobileMenu, .custom-mobile-menu {
+        display: block !important;
+    }
+}
+
+#customMobileMenu a::after {
+    transition: all 0.15s ease !important;
+}
+
+/* Transition de couleur */
+#customMobileMenu a {
+    transition: color 0.15s ease !important;
+}
+
+/* Ajustements pour mobile */
+@media screen and (max-width: 767px) {
+    /* Réduire la marge supérieure du texte d'introduction dans la page Contact */
+    .contact-section2 {
+        margin-top: 120px !important;
+    }
+    
+    /* Disposition verticale pour le formulaire et l'image */
+    .flexboxform {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    /* Ajustements pour le formulaire */
+    .form-section-left {
+        width: 100% !important;
+        margin-bottom: 00px !important;
+    }
+    
+    /* Réduire le padding du formulaire */
+    .contact-form {
+        padding-top: 1rem !important;
+        padding-bottom: 0rem !important;
+    }
+    
+    /* Ajustements pour l'image */
+    .form-section-right {
+        width: 100% !important;
+        margin-bottom: 30px !important;
+    }
+    
+    /* Ajuster la taille de l'image */
+    .form-section-right > div {
+        width: 100% !important;
+        max-width: 400px !important;
+        height: auto !important;
+        aspect-ratio: 1.4 !important;
+    }
+}
