@@ -2497,6 +2497,21 @@ textarea {
     right: 5%;
   }
   
+  /* Ajustement de la position du bouton téléphone sur mobile */
+  @media screen and (max-width: 767px) {
+    .call-button {
+      bottom: 8% !important;
+      right: 4% !important;
+    }
+  }
+  
+  @media screen and (max-width: 479px) {
+    .call-button {
+      bottom: 3% !important;
+      right: 4% !important;
+    }
+  }
+  
   .offer-section {
     background-color: #000;
     padding-top: 4rem;
